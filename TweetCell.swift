@@ -46,7 +46,7 @@ class TweetCell: UITableViewCell {
             
             if (tweet != nil) {
                 self.retweetButton.setImage(UIImage(named: "retweet-on"), forState: UIControlState.Normal)
-                let totalRetweets = Int(self.likeCount.text!)! + 1
+                let totalRetweets = Int(self.retweetCount.text!)! + 1
                 self.retweetCount.text = String(totalRetweets)
             }
         }
