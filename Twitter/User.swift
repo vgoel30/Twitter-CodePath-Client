@@ -20,10 +20,10 @@ class User: NSObject {
         screenname = dictionary["screen_name"] as? String
         tagline = dictionary["description"] as? String
         
-        let profileUrlString = dictionary["profile_image_url_https"] as? String
+        let profileImageUrl = dictionary["profile_image_url_https"] as? String
         
-        if let profileUrlString = profileUrlString{
-            profileUrl  = NSURL(string: profileUrlString)
+        if let profileImageUrl = profileImageUrl{
+            profileUrl  = NSURL(string: profileImageUrl)
         }
     }
 }

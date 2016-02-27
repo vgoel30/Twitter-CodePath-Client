@@ -17,7 +17,7 @@ class Tweet: NSObject {
     var retweetCount: Int = 0
     var favoritesCount: Int = 0
     
-    var profileUrl: NSURL?
+    
     
     init(dictionary: NSDictionary){
         text = dictionary["text"] as? String
@@ -36,10 +36,7 @@ class Tweet: NSObject {
             timestamp = formatter.dateFromString(timestampString)
         }
         
-        let imageURL = dictionary["profile_image_url_https"] as? String
-        if let imageURL = imageURL{
-            profileUrl = NSURL(string: imageURL)
-        }
+       
     }
     
     class func tweetsWithArray(dictionaies: [NSDictionary]) -> [Tweet]{
