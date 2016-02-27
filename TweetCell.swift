@@ -45,9 +45,9 @@ class TweetCell: UITableViewCell {
         TwitterClient.sharedInstance.retweetTweet(["id": tweet.ID!]) { (tweet, error) -> () in
             
             if (tweet != nil) {
-                self.likeButton.setImage(UIImage(named: "like-on"), forState: UIControlState.Normal)
-                let totalLikes = Int(self.likeCount.text!)! + 1
-                self.likeCount.text = String(totalLikes)
+                self.retweetButton.setImage(UIImage(named: "retweet-on"), forState: UIControlState.Normal)
+                let totalRetweets = Int(self.likeCount.text!)! + 1
+                self.retweetCount.text = String(totalRetweets)
             }
         }
     }
