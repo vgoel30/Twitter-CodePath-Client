@@ -17,14 +17,57 @@ class TweetCell: UITableViewCell {
     
     @IBOutlet var thumbImageView: UIImageView!
     
+    
+    @IBOutlet var replyButton: UIButton!
+    @IBOutlet var retweetButton: UIButton!
+    @IBOutlet var likeButton: UIButton!
+    
+    
+    @IBOutlet var retweetCount: UILabel!
+    
+    @IBOutlet var likeCount: UILabel!
+    
     var tweet: Tweet!{
         didSet{
+          retweetCount.text = String(tweet.retweetCount)
+        likeCount.text = String(tweet.favoritesCount)
+            
             tweetLabel.text = tweet.text
             nameLabel.text = tweet.user?.name
             timeLabel.text = timeElapsed(tweet.timestamp!.timeIntervalSinceNow)
             thumbImageView.setImageWithURL((tweet.user?.profileUrl)!)
         }
     }
+    
+    
+    //when the retweet button is clicked
+    @IBAction func onRetweet(sender: AnyObject) {
+        TwitterClient.sharedInstance.retweetTweet(["id": tweet.ID!]) { (tweet, error) -> () in
+            
+            if (tweet != nil) {
+                self.likeButton.setImage(UIImage(named: "like-on"), forState: UIControlState.Normal)
+                let totalLikes = Int(self.likeCount.text!)! + 1
+                self.likeCount.text = String(totalLikes)
+            }
+        }
+    }
+    
+    //when the like button is clicked
+    @IBAction func onLike(sender: AnyObject) {
+        TwitterClient.sharedInstance.likeTweet(["id": tweet.ID!]) { (tweet, error) -> () in
+            
+            if (tweet != nil) {
+                self.likeButton.setImage(UIImage(named: "like-on"), forState: UIControlState.Normal)
+                let totalLikes = Int(self.likeCount.text!)! + 1
+                self.likeCount.text = String(totalLikes)
+            }
+        }
+    }
+    
+    
+   
+    
+    
     
     //helper method that returns the total time elapsed since the thweet
     func timeElapsed(elapsed: NSTimeInterval) -> String {
