@@ -86,6 +86,39 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         // Dispose of any resources that can be recreated.
     }
     
+    //variable to keep track of if more data is being loaded
+    var isMoreDataLoading = false
+    
+    
+    //check if the scrolling is taking place
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        if (!isMoreDataLoading) {
+            let scrollViewContentHeight = tweetTable.contentSize.height
+            let scrollOffsetThreshold = scrollViewContentHeight - tweetTable.bounds.size.height
+            
+            if(scrollView.contentOffset.y > scrollOffsetThreshold && tweetTable.dragging) {
+                isMoreDataLoading = true
+                loadMoreData()
+            }
+            
+        }
+    }
+    
+    //function that loads more data once the bottom screen has been reached.
+    func loadMoreData() {
+        TwitterClient.sharedInstance.homeTimeline({ (tweets:[Tweet]) -> () in
+            self.tweets! += tweets
+            self.tweetTable.reloadData()
+            self.isMoreDataLoading = false
+            
+            
+            }, failure:  { (error: NSError) -> () in
+                print(error.localizedDescription)
+        })
+    }
+    
+    
+    
     //function to check if internet connection is active or not
     
     
