@@ -51,20 +51,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qUK-QU-nuy">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="62" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wSP-FR-Bhy">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TweetCell" rowHeight="62" id="fzj-My-hEQ" customClass="TweetCell" customModule="Twitter" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="320" height="62"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fzj-My-hEQ" id="MGD-Eh-cuG">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="61"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sCS-fX-tja">
+                                                    <rect key="frame" x="103" y="8" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="qUK-QU-nuy" firstAttribute="top" secondItem="rsW-aS-jrP" secondAttribute="top" id="4LB-7b-N2m"/>
-                            <constraint firstAttribute="trailing" secondItem="qUK-QU-nuy" secondAttribute="trailing" id="RUt-cK-XjB"/>
-                            <constraint firstItem="qUK-QU-nuy" firstAttribute="leading" secondItem="rsW-aS-jrP" secondAttribute="leading" id="WgK-G5-Icw"/>
-                            <constraint firstItem="05i-B9-CTz" firstAttribute="top" secondItem="qUK-QU-nuy" secondAttribute="bottom" id="aNS-It-M1i"/>
+                            <constraint firstItem="05i-B9-CTz" firstAttribute="top" secondItem="wSP-FR-Bhy" secondAttribute="bottom" id="4hF-GN-KGv"/>
+                            <constraint firstItem="wSP-FR-Bhy" firstAttribute="leading" secondItem="rsW-aS-jrP" secondAttribute="leading" id="QF9-xT-gcP"/>
+                            <constraint firstAttribute="trailing" secondItem="wSP-FR-Bhy" secondAttribute="trailing" id="eKE-tl-Lg4"/>
+                            <constraint firstItem="wSP-FR-Bhy" firstAttribute="top" secondItem="rsW-aS-jrP" secondAttribute="top" id="yc5-Mk-cPA"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jJd-cM-rmj"/>
+                    <connections>
+                        <outlet property="tweetTable" destination="wSP-FR-Bhy" id="i6C-2F-XAS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W9c-jf-bZn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
