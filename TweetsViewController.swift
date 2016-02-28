@@ -117,6 +117,12 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         })
     }
     
+   
+    //when the logout button is clicked
+    @IBAction func onLogoutButton(sender: AnyObject) {
+        TwitterClient.sharedInstance.logout()
+    }
+   
     
     
     //function to check if internet connection is active or not

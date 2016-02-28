@@ -189,19 +189,25 @@
                             <constraint firstItem="wSP-FR-Bhy" firstAttribute="top" secondItem="rsW-aS-jrP" secondAttribute="top" id="yc5-Mk-cPA"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Tweets" id="jJd-cM-rmj"/>
+                    <navigationItem key="navigationItem" title="Tweets" id="jJd-cM-rmj">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="2dd-Q0-pdK">
+                            <connections>
+                                <action selector="onLogoutButton:" destination="lNU-8X-XXB" id="ywA-r1-e0L"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tweetTable" destination="wSP-FR-Bhy" id="i6C-2F-XAS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W9c-jf-bZn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="60" y="347"/>
+            <point key="canvasLocation" x="456" y="339"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="uyc-Zw-tYw">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UqY-mc-jRZ" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="TweetsNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="UqY-mc-jRZ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vg7-AD-hhP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -214,7 +220,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cFj-XZ-xCR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="71" y="-261"/>
+            <point key="canvasLocation" x="47" y="339"/>
         </scene>
     </scenes>
     <resources>
