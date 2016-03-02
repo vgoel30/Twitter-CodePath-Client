@@ -19,6 +19,8 @@
 		2F87CF8A1C7A3B70004C749C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F87CF891C7A3B70004C749C /* Assets.xcassets */; };
 		2F87CF8D1C7A3B70004C749C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F87CF8B1C7A3B70004C749C /* LaunchScreen.storyboard */; };
 		2FBE91B21C7FC1F400320F0A /* TwitterClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBE91B11C7FC1F400320F0A /* TwitterClient.swift */; };
+		2FD66A471C8755D400D79B62 /* ReplyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD66A461C8755D400D79B62 /* ReplyViewController.swift */; };
+		2FD66A491C875B2300D79B62 /* ReplyIcon copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FD66A481C875B2300D79B62 /* ReplyIcon copy.png */; };
 		2FF4B73E1C7E975200827696 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF4B73D1C7E975200827696 /* User.swift */; };
 		2FF4B7401C7E977E00827696 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF4B73F1C7E977E00827696 /* Tweet.swift */; };
 		2FF5E14E1C80D3F7003236E5 /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF5E14D1C80D3F7003236E5 /* TweetCell.swift */; };
@@ -41,6 +43,8 @@
 		2F87CF8C1C7A3B70004C749C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2F87CF8E1C7A3B70004C749C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Twitter/Info.plist; sourceTree = "<group>"; };
 		2FBE91B11C7FC1F400320F0A /* TwitterClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterClient.swift; sourceTree = "<group>"; };
+		2FD66A461C8755D400D79B62 /* ReplyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplyViewController.swift; sourceTree = "<group>"; usesTabs = 1; };
+		2FD66A481C875B2300D79B62 /* ReplyIcon copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ReplyIcon copy.png"; path = "../../../../ReplyIcon copy.png"; sourceTree = "<group>"; };
 		2FF4B73D1C7E975200827696 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2FF4B73F1C7E977E00827696 /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		2FF5E14D1C80D3F7003236E5 /* TweetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
@@ -70,6 +74,7 @@
 		2F2729881C823AFB00F0C145 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				2FD66A481C875B2300D79B62 /* ReplyIcon copy.png */,
 				2F27297E1C823AE700F0C145 /* like-off.png */,
 				2F27297F1C823AE700F0C145 /* like-on.png */,
 				2F2729801C823AE700F0C145 /* reply.png */,
@@ -130,6 +135,7 @@
 			children = (
 				2F42A8331C7BA37400405A89 /* LoginViewController.swift */,
 				2F5D81A31C80C2F90009CDA1 /* TweetsViewController.swift */,
+				2FD66A461C8755D400D79B62 /* ReplyViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -224,6 +230,7 @@
 				2F2729831C823AE700F0C145 /* like-off.png in Resources */,
 				2F2729861C823AE700F0C145 /* retweet-off.png in Resources */,
 				2F87CF8D1C7A3B70004C749C /* LaunchScreen.storyboard in Resources */,
+				2FD66A491C875B2300D79B62 /* ReplyIcon copy.png in Resources */,
 				2F2729871C823AE700F0C145 /* retweet-on.png in Resources */,
 				2F87CF8A1C7A3B70004C749C /* Assets.xcassets in Resources */,
 				2F87CF881C7A3B70004C749C /* Main.storyboard in Resources */,
@@ -294,6 +301,7 @@
 				2F5D81A41C80C2F90009CDA1 /* TweetsViewController.swift in Sources */,
 				2FBE91B21C7FC1F400320F0A /* TwitterClient.swift in Sources */,
 				2F87CF831C7A3B70004C749C /* AppDelegate.swift in Sources */,
+				2FD66A471C8755D400D79B62 /* ReplyViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

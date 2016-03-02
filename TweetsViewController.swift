@@ -12,6 +12,8 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
   
  
     
+  
+    
     @IBOutlet var tweetTable: UITableView!
    
    
@@ -123,6 +125,21 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         TwitterClient.sharedInstance.logout()
     }
    
+    //for when the user wants to create a new tweet
+    @IBAction func newTweetSegue(sender: AnyObject) {
+    }
+    
+    
+    //for when the user wants to reply
+    @IBAction func replySegue(sender: AnyObject) {
+        let button = sender as! UIButton
+        let view = button.superview!
+        let cell = view.superview as! UITableViewCell
+        let indexPath = tweetTable.indexPathForCell(cell)
+        let tweet = tweets![indexPath!.row]
+    }
+    
+    
     
     
     //function to check if internet connection is active or not
@@ -132,11 +149,11 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    // In a storyboard-based application, you will often want to do a little preparation before navigation */
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
     }
-    */
+
 
 }

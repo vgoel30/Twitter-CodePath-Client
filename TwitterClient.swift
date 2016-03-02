@@ -83,16 +83,16 @@ class TwitterClient: BDBOAuth1SessionManager {
     }
     
     
-    func currentAcount(success: (User) -> (), failure: (NSError) -> ()){
-        //VERIFYING THE CREDENTIALS AND GETTING THE USER'S NAME AND STUFF
-        GET("1.1/account/verify_credentials.json", parameters: nil, success: { (NSURLSessionDataTask,response: AnyObject?) -> Void in
-            let userDictionary = response as! NSDictionary
-            let user = User(dictionary: userDictionary)
+    func currentAcount(success: (User) -> (), failure: (NSError) -> () ){
+        GET("1.1/account/verify_credentials.json", parameters: nil, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
+            let userDictionary = response as? NSDictionary
+            
+            let user = User(dictionary: userDictionary!)
             
             success(user)
             
-            }, failure: { (NSURLSessionDataTask,error: NSError) -> Void in
-             failure(error)
+            }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
+                failure(error)
         })
     }
     
@@ -122,6 +122,34 @@ class TwitterClient: BDBOAuth1SessionManager {
                 print("ERROR: \(error)")
                 completion(tweet: nil, error: error)
         }
+    }
+    
+    //function for replying on a tweet
+    func reply(params: NSDictionary?, completion: (tweet: Tweet?, error: NSError?) -> ()) {
+        
+        POST("1.1/statuses/update.json?status=\(params!["tweet"]!)&in_reply_to_status_id=\(params!["id"] as! Int).json", parameters: params, success: { (operation: NSURLSessionDataTask, response: AnyObject?) -> Void in
+            
+            let tweet = Tweet.tweetAsDictionary(response as! NSDictionary)
+            completion(tweet: tweet, error: nil)
+            
+            }) { (operation: NSURLSessionDataTask?, error: NSError) -> Void in
+                completion(tweet: nil, error: error)
+        }
+        
+    }
+    
+    //function to create a new tweet
+    func create(params: NSDictionary?, completion: (tweet: Tweet?, error: NSError?) -> ()) {
+        
+        POST("1.1/statuses/update.json?status=\(params!["tweet"]!)", parameters: params, success: { (operation: NSURLSessionDataTask, response: AnyObject?) -> Void in
+            
+            let tweet = Tweet.tweetAsDictionary(response as! NSDictionary)
+            completion(tweet: tweet, error: nil)
+            
+            }) { (operation: NSURLSessionDataTask?, error: NSError) -> Void in
+                completion(tweet: nil, error: error)
+        }
+        
     }
     
     
