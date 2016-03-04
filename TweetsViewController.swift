@@ -153,6 +153,29 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
+        //if the user wants to reply
+        if(segue.identifier == "replySegue"){
+            let button = sender as! UIButton
+            let view = button.superview!
+            let cell = view.superview as! UITableViewCell
+            let indexPath = tweetTable.indexPathForCell(cell)
+            let tweet = tweets![indexPath!.row]
+            let replyviewcontroller = segue.destinationViewController as! ReplyViewController
+            replyviewcontroller.tweet = tweet
+        }
+        if (segue.identifier == "createSegue"){
+            let replyviewcontroller = segue.destinationViewController as! ReplyViewController
+            replyviewcontroller.tweet = nil
+        }
+        
+        if(segue.identifier == "tweetDetailSegue"){
+            let cell = sender as! UITableViewCell
+            let indexPath = tweetTable.indexPathForCell(cell)
+            let tweet = tweets![indexPath!.row]
+            let detailViewController = segue.destinationViewController as! TweetDetailViewController
+            detailViewController.tweet = tweet
+        }
+        
     }
 
 
